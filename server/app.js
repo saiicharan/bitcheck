@@ -23,7 +23,6 @@ const getApiAndEmit = socket => {
   .end((err, res) => {
     if (err) { return console.error(err); }
     let btcPrice = _.get(JSON.parse(res.text), ['prices', 'BTC'], 0)
-    console.log('--->', btcPrice);
     socket.emit("bitcoin", btcPrice);
   });
 };
